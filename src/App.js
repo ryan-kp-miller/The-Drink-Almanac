@@ -6,6 +6,8 @@ import {
 import './App.css'
 import DrinkNavbar from './components/DrinkNavbar'
 import LandingPage from './components/LandingPage'
+import RandomDrink from './components/RandomDrink'
+import Construction from './components/Construction'
 
 
 function App() {
@@ -13,8 +15,8 @@ function App() {
     <Router className="bg" >
       <DrinkNavbar />
       <Switch>
-        <Route path="/random-drink"> <LandingPage /> </Route>
-        <Route path="/search-drink"> <LandingPage /> </Route>
+        <Route path="/random-drink"> <RandomDrink /> </Route>
+        <Route path="/search-drink"> <Construction /> </Route>
         <Route path="/"> <LandingPage /> </Route>
       </Switch>
     </Router>
