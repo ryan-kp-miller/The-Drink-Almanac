@@ -17,8 +17,8 @@ const RandomDrink = () => {
     useEffect(getDrinkHandler, [])
 
     return (
-        <Container className="bg">
-            <Jumbotron className=" container">
+        <Container className="bg-black">
+            <Jumbotron className="drink-jumbo">
                 <h2 className="display-4 text-center">{ drinkJSON.drinkName }</h2>
                 <div className="d-flex justify-content-center">
                     <button type="button" className="btn btn-primary" onClick={ getDrinkHandler } variant="primary">Find a drink!</button>
