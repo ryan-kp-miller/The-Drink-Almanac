@@ -9,18 +9,13 @@ body, html {
 
 .drink-carousel-item-header {
     text-align: center;
-    height: inherit;
-}
-
-.carousel-inner > .carousel-item > img {
-    max-height: 50vh;
 }
 
 .drink-container {
-    height: 75vh;
+    height: 100%;
     /* width: 45vh; */
-    margin: 3%;
-    padding: 3%;
+    margin: 10%;
+    padding: 5%;
     border-radius: 15px;
     background-color: #343A40;
 }

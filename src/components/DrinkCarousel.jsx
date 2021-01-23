@@ -1,27 +1,12 @@
 import React from 'react'
-import { Carousel, Image, Row, Col } from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap'
+import DrinkCarouselItem from './DrinkCarouselItem'
 
 const DrinkCarousel = () => {
     return (
         <Carousel className="drink-carousel" indicators={false}>
-            <Carousel.Item>
-                <h2 className="drink-carousel-item-header text-white">Drink 1</h2>
-                <Row>
-                    <Col></Col>
-                    <Col><Image src="https://www.thecocktaildb.com/images/media/drink/kb4bjg1604179771.jpg" thumbnail /></Col>
-                    <Col></Col>
-                </Row>
-            </Carousel.Item>
-
-            <Carousel.Item>
-                <h2 className="drink-carousel-item-header text-white">Drink 2</h2>
-                <Row>
-                    <Col></Col>
-                    <Col><Image src="https://www.thecocktaildb.com/images/media/drink/kb4bjg1604179771.jpg" thumbnail /></Col>
-                    <Col></Col>
-                </Row>
-            </Carousel.Item>
-
+            <Carousel.Item><DrinkCarouselItem title="Drink 1" imgURL="https://www.thecocktaildb.com/images/media/drink/kb4bjg1604179771.jpg" /></Carousel.Item>
+            <Carousel.Item><DrinkCarouselItem title="Drink 2" imgURL="https://www.thecocktaildb.com/images/media/drink/kb4bjg1604179771.jpg" /></Carousel.Item>
         </Carousel>
     )
 }

@@ -1,31 +1,23 @@
+import {
+  BrowserRouter as Router,
+  Switch, Route
+} from "react-router-dom"
+
 import './App.css'
-import { Container, Row, Col } from 'react-bootstrap'
 import DrinkNavbar from './components/DrinkNavbar'
-import DrinkCarousel from './components/DrinkCarousel'
-import IntroSection from './components/IntroSection'
+import LandingPage from './components/LandingPage'
+
 
 function App() {
   return (
-    <div className="bg" >
+    <Router className="bg" >
       <DrinkNavbar />
-      <Container fluid>
-        <Row>
-          <Col xs={6}> 
-            <Container className="drink-container"> 
-              <IntroSection/> 
-            </Container> 
-          </Col>
-
-          <Col xs={6}> 
-            <Container className="drink-container"> 
-              <DrinkCarousel/> 
-            </Container> 
-          </Col>
-        </Row>
-      </Container>
-
-
-    </div>
+      <Switch>
+        <Route path="/random-drink"> <LandingPage /> </Route>
+        <Route path="/search-drink"> <LandingPage /> </Route>
+        <Route path="/"> <LandingPage /> </Route>
+      </Switch>
+    </Router>
   );
 }
 
