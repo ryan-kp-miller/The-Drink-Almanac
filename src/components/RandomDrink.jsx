@@ -17,7 +17,7 @@ const RandomDrink = () => {
     useEffect(getDrinkHandler, [])
 
     return (
-        <Container>
+        <Container className="bg">
             <Jumbotron className=" container">
                 <h2 className="display-4 text-center">{ drinkJSON.drinkName }</h2>
                 <div className="d-flex justify-content-center">

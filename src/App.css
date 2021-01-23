@@ -2,9 +2,24 @@ body, html {
     height: 100vh;
 }
 
-.bg {
-    height: 100vh;
-    background-color: white;  
+#root {
+    height: 100%;
+}
+
+.bg-img {
+    height: 100% !important;
+    width: 100% !important;
+    /* The image used */
+    background-image: url("images/background.jpg");
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-black {
+    background-color: black;
 }
 
 .drink-carousel-item-header {
@@ -12,7 +27,7 @@ body, html {
 }
 
 .drink-container {
-    height: 100%;
+    /* height: 100%; */
     /* width: 45vh; */
     margin: 10%;
     padding: 5%;
@@ -20,8 +35,13 @@ body, html {
     background-color: #343A40;
 }
 
+.row-full-page {
+    width:100vw !important;
+    height: 100%;
+}
+
 #random-drink-img {
-    max-height: 40vh !important;
+    max-height: 50vh !important;
 }
 
 .brand-font {
