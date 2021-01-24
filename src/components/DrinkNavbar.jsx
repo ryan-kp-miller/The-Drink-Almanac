@@ -6,7 +6,6 @@ const DrinkNavbar = () => {
     const [expanded, setExpanded] = useState(false)
     const setNavbarExpanded = () => setExpanded(!expanded)
     const unexpandNavbar = () => {
-        console.log("unexpanded")
         if (expanded) {setExpanded(false)}
     }
     const padding = {paddingLeft: 35}
