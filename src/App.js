@@ -25,7 +25,7 @@ function App() {
       <Row className="app-row"> <DrinkNavbar isDesktop={isDesktop} /> </Row>
       <Row className="app-content">
         <Switch>
-          <Route path="/random-drink"> <RandomDrink isDesktop={isDesktop} /> </Route>
+          <Route path="/random-drink"> <RandomDrink /> </Route>
           <Route path="/search-drink"> <Construction /> </Route>
           <Route path="/"> <LandingPage isDesktop={isDesktop} /> </Route>
         </Switch>

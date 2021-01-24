@@ -24,12 +24,12 @@ body, html {
     overflow-x: hidden !important;
 }
 
-#random-drink-background {
+#drink-detail-background {
     background-color: #c7c7c7;
     width: 100%;
 }
 
-#random-drink-details {
+#drink-details {
     padding: 3%;
 }
 
@@ -54,11 +54,6 @@ body, html {
     background-color: #343A40;
 }
 
-#random-drink-div {
-    display: flex;
-    justify-content: center;
-}
-
 .drink-jumbo {
     margin: 3%;
     padding: 5%;
@@ -68,7 +63,7 @@ body, html {
     color: white;
 }
 
-#random-drink-img {
+#drink-detail-img {
     display: flex !important;
     justify-content: center !important;
     max-height: 50vh !important;
