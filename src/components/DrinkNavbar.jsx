@@ -12,7 +12,7 @@ const DrinkNavbar = () => {
     return (
         <Navbar style={{width:"100%"}} className="justify-content-center" bg="dark" expand="lg" variant="dark"
                 onToggle={setNavbarExpanded} expanded={expanded}>
-            <Navbar.Brand className="mr-auto" as={Link} style={padding} to="/">The Drink Almanac</Navbar.Brand>
+            <Navbar.Brand className="mr-auto" as={Link} to="/">The Drink Almanac</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={setNavbarExpanded} />
             <Navbar.Collapse className="ml-auto" id="basic-navbar-nav">
                 <Nav className="ml-auto">
