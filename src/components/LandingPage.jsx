@@ -8,13 +8,13 @@ function LandingPage() {
     <div className="bg-img">
       <Container>
         <Row>
-          <Col xs={5}> 
+          <Col xs={6}> 
             <Container className="drink-container"> 
               <IntroSection/> 
             </Container> 
           </Col>
 
-          <Col xs={6}> 
+          <Col xs={5}> 
             {/* <Container className="drink-container"> 
               <DrinkCarousel/> 
             </Container>  */}

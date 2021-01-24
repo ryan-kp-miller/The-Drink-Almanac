@@ -14,8 +14,8 @@ import Construction from './components/Construction'
 function App() {
   return (
     <Router>
-      <Row style={{height:"10%", width:"100%"}}> <DrinkNavbar /> </Row>
-      <Row style={{height:"90%", width:"100%"}}>
+      <Row className="app-row"> <DrinkNavbar /> </Row>
+      <Row className="app-content">
         <Switch>
           <Route path="/random-drink"> <RandomDrink /> </Route>
           <Route path="/search-drink"> <Construction /> </Route>
