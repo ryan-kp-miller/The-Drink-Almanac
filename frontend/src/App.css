@@ -4,8 +4,8 @@ body, html {
 
 #root {
     height: 100%;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .bg-img {
@@ -25,8 +25,6 @@ body, html {
 }
 
 .drink-container {
-    /* height: 100%; */
-    /* width: 45vh; */
     margin: 10%;
     padding: 5%;
     border-radius: 15px;
@@ -37,7 +35,9 @@ body, html {
     margin: 3%;
     padding: 5%;
     border-radius: 15px;
+    padding: 20px 10px !important;
     background-color: #343A40 !important;
+    color: white;
 }
 
 .row-full-page {
@@ -52,9 +52,3 @@ body, html {
 .brand-font {
     /* font-family: cursive, "Brush Script MT"; */
 }
-
-/* @media screen and (min-width: 768px) { */
-    .jumbotron {
-      padding: 20px 10px !important;
-    }
-/* } */
