@@ -1,6 +1,6 @@
 import '../App.css'
 import { Container, Row, Col } from 'react-bootstrap'
-import DrinkCarousel from './DrinkCarousel'
+// import DrinkCarousel from './DrinkCarousel'
 import IntroSection from './IntroSection'
 
 function LandingPage() {
