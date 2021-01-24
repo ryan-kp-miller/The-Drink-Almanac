@@ -27,7 +27,7 @@ const formatDrinkJSON = drinkJSON => {
             formattedDrinkJSON.ingredients.push(
                     // add "of " if measure doesn't already include it
                     drinkJSON[`strMeasure${i}`].includes("of") ? 
-                        drinkJSON[`strMeasure${i}`] + drinkJSON[`strIngredient${i}`] :
+                        drinkJSON[`strMeasure${i}`].trim() + ' ' + drinkJSON[`strIngredient${i}`] :
                         drinkJSON[`strMeasure${i}`] + "of " + drinkJSON[`strIngredient${i}`] 
             )
         }
