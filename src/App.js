@@ -3,6 +3,7 @@ import {
   Switch, Route
 } from "react-router-dom"
 
+import { useState, useEffect } from 'react'
 import './App.css'
 import { Row } from 'react-bootstrap'
 import DrinkNavbar from './components/DrinkNavbar'
@@ -12,14 +13,21 @@ import Construction from './components/Construction'
 
 
 function App() {
+  const [isDesktop, setIsDesktop] = useState(true)
+  useEffect(()=>{
+    if (window.innerWidth <= 650){
+      setIsDesktop(false)
+    }
+  }, [])
+
   return (
     <Router>
-      <Row className="app-row"> <DrinkNavbar /> </Row>
+      <Row className="app-row"> <DrinkNavbar isDesktop={isDesktop} /> </Row>
       <Row className="app-content">
         <Switch>
-          <Route path="/random-drink"> <RandomDrink /> </Route>
+          <Route path="/random-drink"> <RandomDrink isDesktop={isDesktop} /> </Route>
           <Route path="/search-drink"> <Construction /> </Route>
-          <Route path="/"> <LandingPage /> </Route>
+          <Route path="/"> <LandingPage isDesktop={isDesktop} /> </Route>
         </Switch>
       </Row>
     </Router>
