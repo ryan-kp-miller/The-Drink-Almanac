@@ -2,14 +2,11 @@ import '../App.css'
 import { Container } from 'react-bootstrap'
 // import DrinkCarousel from './DrinkCarousel'
 import IntroSection from './IntroSection'
-import desktopImage from '../images/cocktails.jpg'
-import mobileImage from '../images/mobile-background.jpg'
+import backgroundImage from '../images/cocktails.jpg'
 
-function LandingPage({ isDesktop }) {
-  const imageURL = isDesktop ? desktopImage : desktopImage;
-  
+function LandingPage({ isDesktop }) { 
   return (
-    <div className="bg-img" style={{backgroundImage: `url(${imageURL})`}}>
+    <div className="bg-img" style={{backgroundImage: `url(${backgroundImage})`}}>
       <Container>
         <div className="drink-container"> 
           <IntroSection/> 
