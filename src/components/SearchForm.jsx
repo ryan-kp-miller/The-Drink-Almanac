@@ -10,9 +10,9 @@ const SearchForm = () => {
     const [hasSearched, setHasSearched] = useState(false)
     const [drinkJSONArray, setDrinkArray] = useState([])
     const searchForDrinks = (drinkName) => {
-        setHasSearched(true)
         const responseArray = getDrinksByName(drinkName)
         responseArray.then(drinks => {
+            setHasSearched(true)
             if (!drinks) {
                 setDrinkArray([])
                 return
