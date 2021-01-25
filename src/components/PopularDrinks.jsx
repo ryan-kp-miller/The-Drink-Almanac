@@ -14,7 +14,7 @@ const PopularDrinks = () => {
     const [drinkJSONArray, setDrinkArray] = useState([])
 
     const clickDrinkImage = (drinkID) => {
-        return
+        return 
     }
 
     const retrieveAllDrinkJSON = () => {
