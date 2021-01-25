@@ -47,20 +47,6 @@ body, html {
     padding: 3%;
 }
 
-.bg-img {
-    height: 100% !important;
-    width: 100% !important;
-
-    /* capping the height based on the screen size
-       to make the page look better on mobile */
-    max-height: 90vh;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .drink-container {
     margin: 3%;
     padding: 3%;

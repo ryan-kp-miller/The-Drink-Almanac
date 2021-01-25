@@ -10,14 +10,14 @@ function LandingPage() {
     const root = document.getElementById("root")
     root.style.backgroundImage = `url(${backgroundImage})`
 
-    // Specify how to clean up after this effect:
+    // remove the background image when switching to different page
     return function cleanup() {
       root.style.backgroundImage = ""
     };
   }, [])
 
   return (
-    <div className="bg-img">
+    <div>
       <Container>
         <div className="drink-container"> 
           <IntroSection/> 
