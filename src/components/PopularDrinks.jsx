@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { getDrinkByID } from '../services/getDrinkData'
+import DrinkDetail from './DrinkDetail'
 
 
 const PopularDrinks = () => {
@@ -11,6 +12,10 @@ const PopularDrinks = () => {
     const promiseArray = []
     const resultArray = []
     const [drinkJSONArray, setDrinkArray] = useState([])
+
+    const clickDrinkImage = (drinkID) => {
+        return
+    }
 
     const retrieveAllDrinkJSON = () => {
         popularDrinkIDs.forEach(drinkID => {
