@@ -11,6 +11,7 @@ import LandingPage from './components/LandingPage'
 import RandomDrink from './components/RandomDrink'
 import PopularDrinks from './components/PopularDrinks'
 import Construction from './components/Construction'
+import DrinkDetailByID from './components/DrinkDetailByID'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/random-drink"> <RandomDrink /> </Route>
           <Route path="/popular-drinks"> <PopularDrinks /> </Route>
           <Route path="/search-drink"> <Construction /> </Route>
+          <Route path="/:id" component={DrinkDetailByID} />
           <Route path="/"> <LandingPage isDesktop={isDesktop} /> </Route>
         </Switch>
       </Row>

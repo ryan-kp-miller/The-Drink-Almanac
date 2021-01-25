@@ -13,10 +13,6 @@ const PopularDrinks = () => {
     const resultArray = []
     const [drinkJSONArray, setDrinkArray] = useState([])
 
-    const clickDrinkImage = (drinkID) => {
-        return 
-    }
-
     const retrieveAllDrinkJSON = () => {
         popularDrinkIDs.forEach(drinkID => {
             promiseArray.push(getDrinkByID(drinkID))
@@ -34,26 +30,28 @@ const PopularDrinks = () => {
     useEffect(retrieveAllDrinkJSON, [])
 
     return (
-        <Container>
-            <div className="drink-jumbo">
-                <h2 className="text-center">Popular Drinks</h2>
-            </div>
+        <div className="page-background">
+            <Container className="page-background">
+                <div className="drink-jumbo">
+                    <h2 className="text-center">Popular Drinks</h2>
+                </div>
 
-            <Container>
-                <Row>
-                    {
-                        drinkJSONArray.map(drinkJSON => {
-                            return (
-                                <div key={drinkJSON.drinkName} className="col-lg-4 col-6 px-0">
-                                    <img className="img-thumbnail img-fluid" src={drinkJSON.imgURL} alt="" />
-                                    <p className="drink-image-label text-center">{drinkJSON.drinkName}</p>
-                                </div>
-                            )
-                        })
-                    }
-                </Row>
+                <Container>
+                    <Row>
+                        {
+                            drinkJSONArray.map(drinkJSON => {
+                                return (
+                                    <div key={drinkJSON.drinkName} className="col-lg-4 col-6 px-0">
+                                        <a href={`/${drinkJSON.drinkID}`} ><img className="img-thumbnail img-fluid" src={drinkJSON.imgURL} alt="" /></a> 
+                                        <p className="drink-image-label text-center">{drinkJSON.drinkName}</p>
+                                    </div>
+                                )
+                            })
+                        }
+                    </Row>
+                </Container>
             </Container>
-        </Container>
+        </div>
     )
 }
 

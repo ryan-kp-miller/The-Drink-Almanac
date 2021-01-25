@@ -2,7 +2,7 @@ import { Container, Row, Col, Image } from 'react-bootstrap'
 
 const DrinkDetail = ({ drinkJSON, getDrinkHandler }) => {
     return (
-        <div id="drink-detail-background">
+        <div className="page-background">
             <Container>
                 <div className="drink-jumbo">
                     <h2 className="text-center">{ drinkJSON.drinkName }</h2>
