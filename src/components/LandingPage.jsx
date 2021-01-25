@@ -1,9 +1,7 @@
 import '../App.css'
 import { useEffect } from 'react'
-import { Container } from 'react-bootstrap'
-// import DrinkCarousel from './DrinkCarousel'
-import IntroSection from './IntroSection'
 import backgroundImage from '../images/cocktails.jpg'
+import PageHeader from './PageHeader'
 
 function LandingPage() { 
   useEffect(() => {
@@ -17,13 +15,7 @@ function LandingPage() {
   }, [])
 
   return (
-    <div>
-      <Container>
-        <div className="drink-container"> 
-          <IntroSection/> 
-        </div> 
-      </Container>
-    </div>
+    <PageHeader pageTitle="The Drink Almanac" additionalDiv={<p className="lead text-center">Learn how to make a wide variety of drinks</p>} />
   );
 }
 
