@@ -9,6 +9,10 @@ body, html {
     color: black;
 }
 
+.is-scrollLocked {
+    overflow: hidden;
+}
+
 .app-row {
     width: 100vw !important;
     margin: 0px !important;
