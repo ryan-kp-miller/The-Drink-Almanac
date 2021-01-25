@@ -22,6 +22,15 @@ function App() {
     }
   }, [])
 
+  // to help iOS scrolling
+  const preventDefault = e => e.preventDefault();
+  // When rendering our container
+  window.addEventListener('touchmove', preventDefault, {
+    passive: false
+  });
+  // Remember to clean up when removing it
+  window.removeEventListener('touchmove', preventDefault);
+
   return (
     <Router>
       <Row className="app-row"> <DrinkNavbar isDesktop={isDesktop} /> </Row>

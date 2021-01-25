@@ -13,6 +13,10 @@ body, html {
     overflow: hidden;
 }
 
+.is-momentumScrollable {
+    -webkit-overflow-scrolling: touch;
+}
+
 .app-row {
     width: 100vw !important;
     margin: 0px !important;
