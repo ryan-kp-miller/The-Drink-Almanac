@@ -10,7 +10,6 @@ import DrinkNavbar from './components/DrinkNavbar'
 import LandingPage from './components/LandingPage'
 import RandomDrink from './components/RandomDrink'
 import PopularDrinks from './components/PopularDrinks'
-import Construction from './components/Construction'
 import DrinkDetailByID from './components/DrinkDetailByID'
 import SearchForm from './components/SearchForm'
 
