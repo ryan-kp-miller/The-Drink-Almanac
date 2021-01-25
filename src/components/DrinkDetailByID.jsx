@@ -17,7 +17,7 @@ const DrinkDetailByID = () => {
     const getDrinkHandler = () => getDrinkByID(id).then(data => setDrinkJSON(data))
     
     //when page is loaded, make API request for id in the URL 
-    useEffect(getDrinkHandler, [])
+    useEffect(getDrinkHandler, [id])
 
     return (
         <div className="page-background">

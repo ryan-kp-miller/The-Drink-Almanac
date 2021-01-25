@@ -27,7 +27,7 @@ const PopularDrinks = () => {
     }
     
     //when page is loaded, make API request for random drink data
-    useEffect(retrieveAllDrinkJSON, [])
+    useEffect(retrieveAllDrinkJSON, [promiseArray, resultArray])
 
     return (
         <div className="page-background">
