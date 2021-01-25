@@ -40,7 +40,7 @@ function App() {
           <Route path="/popular-drinks"> <PopularDrinks /> </Route>
           <Route path="/search-drink"> <SearchForm /> </Route>
           <Route path="/:id" component={DrinkDetailByID} />
-          <Route path="/"> <LandingPage isDesktop={isDesktop} /> </Route>
+          <Route path="/"> <LandingPage /> </Route>
         </Switch>
       </Row>
     </Router>
