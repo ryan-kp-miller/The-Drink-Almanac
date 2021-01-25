@@ -27,11 +27,11 @@ const PopularDrinks = () => {
     }
     
     //when page is loaded, make API request for random drink data
-    useEffect(retrieveAllDrinkJSON, [promiseArray, resultArray])
+    useEffect(retrieveAllDrinkJSON, [])
 
     return (
         <div className="page-background">
-            <PageHeader pageTitle="Popular Drink" pageDescription="Click on one of the images below to learn how to make that drink"/>
+            <PageHeader pageTitle="Popular Drinks" pageDescription="Click on one of the images below to learn how to make that drink"/>
             <DrinkList drinkJSONArray={drinkJSONArray} />
         </div>
     )
