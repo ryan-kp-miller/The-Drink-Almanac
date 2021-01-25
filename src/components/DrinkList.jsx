@@ -1,12 +1,17 @@
 import { Container, Row } from 'react-bootstrap'
 
 
-const DrinkList = ({ drinkJSONArray, pageTitle }) => {
+const DrinkList = ({ drinkJSONArray, pageTitle, pageDescription }) => {
     return (
         <div className="page-background">
             <Container className="page-background">
                 <div className="drink-jumbo">
                     <h2 className="text-center">{pageTitle}</h2>
+                    {
+                        pageDescription ?
+                        <p class="text-center">{pageDescription}</p> :
+                        undefined
+                    }
                 </div>
 
                 <Container>

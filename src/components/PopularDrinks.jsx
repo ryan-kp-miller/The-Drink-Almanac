@@ -29,7 +29,8 @@ const PopularDrinks = () => {
     useEffect(retrieveAllDrinkJSON, [])
 
     return (
-        <DrinkList pageTitle="Popular Drinks" drinkJSONArray={drinkJSONArray} />
+        <DrinkList pageTitle="Popular Drinks" drinkJSONArray={drinkJSONArray} 
+            pageDescription="Click on one of the images below to learn how to make that drink"/>
     )
 }
 
