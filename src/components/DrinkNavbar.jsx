@@ -34,6 +34,7 @@ const DrinkNavbar = () => {
                 <Nav className="ml-auto">
                     <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/">Home</Nav.Link>
                     <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/random-drink">Random Drink</Nav.Link>
+                    <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/popular-drinks">Popular Drinks</Nav.Link>
                     <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/search-drink">Search for a Drink</Nav.Link>
                 </Nav>
             </Navbar.Collapse>

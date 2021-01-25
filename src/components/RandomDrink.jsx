@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import getRandomDrink from '../services/getDrinkData' 
+import { getRandomDrink } from '../services/getDrinkData' 
 import DrinkDetail from './DrinkDetail'
 
 const RandomDrink = () => {

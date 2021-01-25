@@ -5,6 +5,9 @@ const baseURL = "https://www.thecocktaildb.com/api/json/v1/1"
 const getRandomDrink = () => {
     return axios.get(`${baseURL}/random.php`).then(response => formatDrinkJSON(response.data.drinks[0]))
 }
+const getDrinkByID = (drinkID) => {
+    return axios.get(`${baseURL}/lookup.php?i=${drinkID}`).then(response => formatDrinkJSON(response.data.drinks[0]))
+}
 
 const formatDrinkJSON = drinkJSON => {
     const formattedDrinkJSON = {
@@ -36,4 +39,5 @@ const formatDrinkJSON = drinkJSON => {
     return formattedDrinkJSON
 }
 
-export default getRandomDrink
+// eslint-disable-next-line import/no-anonymous-default-export
+export { getRandomDrink, getDrinkByID }

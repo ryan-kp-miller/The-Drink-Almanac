@@ -17,7 +17,7 @@ const DrinkDetail = ({ drinkJSON, getDrinkHandler }) => {
 
                 <Container>
                     <div className="row" id="drink-details">
-                        <Col lg={7} xs={12}>
+                        <Col md={7} lg={7} xs={12}>
                             <Row>
                                 <ul>
                                     { 
@@ -29,7 +29,7 @@ const DrinkDetail = ({ drinkJSON, getDrinkHandler }) => {
                                 <p> {drinkJSON.instructions} </p>
                             </Row>
                         </Col>
-                        <div className="col-lg-5 col-sm-3 d-flex justify-content-center">
+                        <div className="col-lg-5 col-md-5 col-sm-3 d-flex justify-content-center">
                             {<Image src={ drinkJSON.imgURL } alt="..." id="drink-detail-img" className="img-thumbnail" />}
                         </div>
                     </div>
