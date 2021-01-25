@@ -12,6 +12,7 @@ import RandomDrink from './components/RandomDrink'
 import PopularDrinks from './components/PopularDrinks'
 import Construction from './components/Construction'
 import DrinkDetailByID from './components/DrinkDetailByID'
+import SearchForm from './components/SearchForm'
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
         <Switch>
           <Route path="/random-drink"> <RandomDrink /> </Route>
           <Route path="/popular-drinks"> <PopularDrinks /> </Route>
-          <Route path="/search-drink"> <Construction /> </Route>
+          <Route path="/search-drink"> <SearchForm /> </Route>
           <Route path="/:id" component={DrinkDetailByID} />
           <Route path="/"> <LandingPage isDesktop={isDesktop} /> </Route>
         </Switch>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getDrinkByID } from '../services/getDrinkData'
 import DrinkList from './DrinkList'
+import PageHeader from './PageHeader'
 
 
 const PopularDrinks = () => {
@@ -29,8 +30,10 @@ const PopularDrinks = () => {
     useEffect(retrieveAllDrinkJSON, [])
 
     return (
-        <DrinkList pageTitle="Popular Drinks" drinkJSONArray={drinkJSONArray} 
-            pageDescription="Click on one of the images below to learn how to make that drink"/>
+        <div className="page-background">
+            <PageHeader pageTitle="Popular Drink" pageDescription="Click on one of the images below to learn how to make that drink"/>
+            <DrinkList drinkJSONArray={drinkJSONArray} />
+        </div>
     )
 }
 

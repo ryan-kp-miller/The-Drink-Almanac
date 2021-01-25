@@ -2,19 +2,8 @@ import { Container, Row, Col, Image } from 'react-bootstrap'
 
 const DrinkDetail = ({ drinkJSON, getDrinkHandler }) => {
     return (
-        <div className="page-background">
+        <div>
             <Container>
-                <div className="drink-jumbo">
-                    <h2 className="text-center">{ drinkJSON.drinkName }</h2>
-                    {
-                        getDrinkHandler ?
-                        <div className="d-flex justify-content-center">
-                            <button type="button" className="btn btn-primary" onClick={ getDrinkHandler } variant="primary">Find a drink!</button>
-                        </div> :
-                        undefined
-                    }
-                </div>
-
                 <Container>
                     <div className="row" id="drink-details">
                         <Col md={7} lg={7} xs={12}>

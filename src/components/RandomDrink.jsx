@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { getRandomDrink } from '../services/getDrinkData' 
 import DrinkDetail from './DrinkDetail'
+import PageHeader from './PageHeader'
 
 const RandomDrink = () => {
     const [drinkJSON, setDrinkJSON] = useState({
@@ -17,7 +18,14 @@ const RandomDrink = () => {
     useEffect(getDrinkHandler, [])
 
     return (
-        <DrinkDetail drinkJSON={drinkJSON} getDrinkHandler={getDrinkHandler}/>
+        <div className="page-background">
+            <PageHeader pageTitle={drinkJSON.drinkName} additionalDiv={
+                <div className="d-flex justify-content-center">
+                    <button type="button" className="btn btn-primary" onClick={ getDrinkHandler } variant="primary">Find a drink!</button>
+                </div>
+            }/>
+            <DrinkDetail drinkJSON={drinkJSON} getDrinkHandler={getDrinkHandler}/>
+        </div>
     )
 }
 

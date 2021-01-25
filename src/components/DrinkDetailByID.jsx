@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { getDrinkByID } from '../services/getDrinkData' 
 import DrinkDetail from './DrinkDetail'
+import PageHeader from './PageHeader'
 
 const DrinkDetailByID = () => {
     let { id } = useParams()
@@ -19,7 +20,10 @@ const DrinkDetailByID = () => {
     useEffect(getDrinkHandler, [])
 
     return (
-        <DrinkDetail drinkJSON={drinkJSON} />
+        <div className="page-background">
+            <PageHeader pageTitle={drinkJSON.drinkName}/>
+            <DrinkDetail drinkJSON={drinkJSON} />
+        </div>
     )
 }
 
