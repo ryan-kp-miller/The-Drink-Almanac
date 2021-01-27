@@ -27,7 +27,7 @@ const SearchForm = () => {
         <div className="page-background">
             <PageHeader pageTitle="Search for a Drink by Name" additionalDiv={
                 <Container className="input-group mt-3 justify-content-center">
-                    <input className="input-group-text" type="text" onChange={event => setSearchText(event.target.value)} placeholder="Enter the name of a drink"/> 
+                    <input className="input-group-text" type="text" onChange={event => setSearchText(event.target.value)} placeholder="Enter a drink's name"/> 
                     <div className="input-group-append">
                         <button className="btn btn-primary" onClick={() => searchForDrinks(searchText)}>Search</button>
                     </div>
