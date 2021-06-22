@@ -16,7 +16,7 @@ class UserModel(db.Model):
         return {
             'id': self.id,
             'username': self.username,
-            'favorites': [fav.json() for fav in FavoriteModel.find_favorites_by_user_id(self.id)],
+            'favorites': [fav.json()['drink_id'] for fav in FavoriteModel.find_favorites_by_user_id(self.id)],
         }
     
     def save_to_db(self):
