@@ -17,7 +17,7 @@ class Favorite(Resource):
         data = parser.parse_args()
         favorite = FavoriteModel.find_by_user_and_drink_ids(**data)
         if favorite:
-            return {'message': 'The user has already favorited this drink'}
+            return {'message': 'The user has already favorited this drink'}, 400
         favorite = FavoriteModel(**data)
         favorite.save_to_db()
         return favorite.json(), 201

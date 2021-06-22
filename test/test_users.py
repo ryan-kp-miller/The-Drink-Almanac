@@ -25,11 +25,11 @@ data = response.json()
 if 'message' in data:
     print(f"Server message: {data['message']}")
 
-# delete the favorite from the test user
-response = requests.delete(API_BASE_URL + "favorite", json=payload)
-print(f"Response Status Code: {response.status_code}")
-data = response.json()
-if 'message' in data:
-    print(f"Server message: {data['message']}")
+# # delete the favorite from the test user
+# response = requests.delete(API_BASE_URL + "favorite", json=payload)
+# print(f"Response Status Code: {response.status_code}")
+# data = response.json()
+# if 'message' in data:
+#     print(f"Server message: {data['message']}")
 
 
