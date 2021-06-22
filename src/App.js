@@ -12,6 +12,7 @@ import RandomDrink from './components/RandomDrink'
 import PopularDrinks from './components/PopularDrinks'
 import DrinkDetailByID from './components/DrinkDetailByID'
 import SearchForm from './components/SearchForm'
+import FavoriteListByID from './components/FavoriteListByID'
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path="/random-drink"> <RandomDrink /> </Route>
           <Route path="/popular-drinks"> <PopularDrinks /> </Route>
           <Route path="/search-drink"> <SearchForm /> </Route>
+          <Route path="/favorites/:id" component={FavoriteListByID} />
           <Route path="/:id" component={DrinkDetailByID} />
           <Route path="/"> <LandingPage /> </Route>
         </Switch>
