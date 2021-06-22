@@ -1,7 +1,31 @@
+import { useState, useEffect } from 'react'
 import { Container, Row } from 'react-bootstrap'
+import { getDrinkByID } from '../services/getDrinkData'
 
 
-const DrinkList = ({ drinkJSONArray }) => {
+const DrinkList = ({ drinkIDArray }) => {
+    const promiseArray = []
+    const resultArray = []
+    const [drinkJSONArray, setDrinkArray] = useState([])
+
+    const retrieveAllDrinkJSON = () => {
+        // if(drinkIDArray !== undefined){
+            drinkIDArray.forEach(drinkID => {
+                promiseArray.push(getDrinkByID(drinkID))
+            })
+    
+            Promise.all(promiseArray).then(results => {
+                results.forEach(data => {
+                    resultArray.push(data)
+                });
+                setDrinkArray(resultArray)
+            });
+        // }
+    }
+    
+    //when page is loaded, make API request for random drink data
+    useEffect(retrieveAllDrinkJSON)
+
     return (
             <Container>
                 <Container>
