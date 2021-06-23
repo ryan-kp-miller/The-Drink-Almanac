@@ -48,7 +48,7 @@ const UserRegister = () => {
         <div className="page-background">
             <PageHeader pageTitle="Create an Account"/>
 
-            <Container className="col-4 justify-content-md-center">
+            <Container className="col-sm-8 col-md-6 col-lg-4 justify-content-md-center">
                 
                 <Form onSubmit={handleSubmit}>
             
