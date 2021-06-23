@@ -23,7 +23,7 @@ const UserRegister = () => {
         console.log("submitted")
 
         const promise = createUser(username, password)
-        promise.then( (response) => {
+        promise.then( () => {
             alertStyle = "success"
             alertMessage = "Your account was created! Please go to the login page to sign in."
 
@@ -48,7 +48,7 @@ const UserRegister = () => {
         <div className="page-background">
             <PageHeader pageTitle="Create an Account"/>
 
-            <Container className="input-group mt-3 justify-content-center">
+            <Container className="col-4 justify-content-md-center">
                 
                 <Form onSubmit={handleSubmit}>
             
