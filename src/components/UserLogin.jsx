@@ -5,7 +5,7 @@ import PageHeader from "./PageHeader"
 import UserForm from "./UserForm"
 import { loginUser } from '../services/userRequests'
 
-const UserLogin = ({ setJwtTokens }) => {
+const UserLogin = ({ setJwt }) => {
     const [loginAlert, setLoginAlert] = useState(undefined)
     const history = useHistory()
 
@@ -17,7 +17,7 @@ const UserLogin = ({ setJwtTokens }) => {
 
         const promise = loginUser(username, password)
         promise.then( response => {
-            setJwtTokens(response.data)
+            setJwt(response.data)
             alertStyle = "success"
             alertMessage = "Login was successful! Going to the home page."
 

@@ -19,7 +19,7 @@ import UserLogin from './components/UserLogin'
 
 function App() {
   const [isDesktop, setIsDesktop] = useState(true)
-  const [jwtTokens, setJwtTokens] = useState({
+  const [jwt, setJwt] = useState({
     'access_token': '',
     'refresh_token': ''
   })
@@ -41,14 +41,20 @@ function App() {
 
   return (
     <Router>
-      <Row className="app-row"> <DrinkNavbar isDesktop={isDesktop} /> </Row>
+      <Row className="app-row"> 
+        <DrinkNavbar 
+          isDesktop={isDesktop} 
+          jwt={jwt} 
+          setJwt={setJwt} 
+        /> 
+      </Row>
       <Row className="app-content">
         <Switch>
           <Route path="/random-drink"> <RandomDrink /> </Route>
           <Route path="/popular-drinks"> <PopularDrinks /> </Route>
           <Route path="/search-drink"> <SearchForm /> </Route>
           <Route path="/register"> <UserRegister /> </Route>
-          <Route path="/login"> <UserLogin setJwtTokens={setJwtTokens} /> </Route>
+          <Route path="/login"> <UserLogin setJwt={setJwt} /> </Route>
           <Route path="/favorites/:id" component={FavoriteListByID} />
           <Route path="/:id" component={DrinkDetailByID} />
           <Route path="/"> <LandingPage /> </Route>
