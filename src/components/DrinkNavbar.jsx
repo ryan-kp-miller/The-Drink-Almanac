@@ -12,12 +12,10 @@ const DrinkNavbar = ({ jwt, setJwt }) => {
     const padding = {paddingLeft: 35}
     
     const logout = () => {
-        console.log(jwt)
         setJwt({
             access_token: '',
             refresh_token: ''
         })
-        console.log(jwt)
         unexpandNavbar()
     }
     
