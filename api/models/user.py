@@ -24,6 +24,10 @@ class UserModel(db.Model):
         db.session.commit()
 
     def delete_from_db(self):
+        # retrieve and remove all the favorites for that user
+        FavoriteModel.query.filter_by(user_id=self.id).delete()
+
+        # remove the user from the db
         db.session.delete(self)
         db.session.commit()
 

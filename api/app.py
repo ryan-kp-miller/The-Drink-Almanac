@@ -18,7 +18,7 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
     
     api = Api(app, prefix="/api", doc="/api")
-    api.add_resource(User,         '/user/<int:user_id>')
+    api.add_resource(User,         '/user')
     api.add_resource(UserRegister, '/register')
     api.add_resource(Favorite,     '/favorite')
     

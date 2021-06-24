@@ -31,11 +31,15 @@ class User(Resource):
         return {'message': f'User with id {user_id} not found.'}, 404
 
     @classmethod
-    def delete(cls, user_id):
-        user = UserModel.find_by_id(user_id)
+    def delete(cls):
+        data = _user_parser.parse_args()
+        user = UserModel.find_by_username(data['username'])
         if not user:
-            return {'message': f'User with id {user_id} not found.'}, 404
+            return {'message': f"User with username {data['username']} not found."}, 404
             
+        if user.password != data['password']:
+            return {'message': f"Password was incorrect"}, 400
+
         user.delete_from_db()    
-        return {'message': f'User with id {user_id} was deleted.'}, 200
+        return {'message': f"User with id {data['username']} was deleted."}, 200
 
