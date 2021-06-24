@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
-import { getUserByID } from '../services/userRequests'
+import { getUserByJWT } from '../services/userRequests'
 import { retrieveMultipleDrinks } from '../services/getDrinkData'
 import PageHeader from './PageHeader'
 import DrinkList from './DrinkList'
 
-const FavoriteListByID = () => {
-    let { id } = useParams()
+const FavoriteListByID = ({ jwt }) => {
     const [userJSON, setUserJSON] = useState({
         id: "",
         username: "",
@@ -14,12 +12,16 @@ const FavoriteListByID = () => {
     })
     const [drinkArray, setDrinkArray] = useState([])
     
-    const getUserHandler = () => getUserByID(id).then(data => {
-        setUserJSON(data)
-    })
+    const getUserHandler = () => {
+        if(jwt.access_token !== ""){
+            getUserByJWT(jwt.access_token).then(data => {
+                setUserJSON(data)
+            })
+        }
+    }
     
     //when userJSON.favorites is modified, make API request for all drink ids in favorites 
-    useEffect(getUserHandler, [id])
+    useEffect(getUserHandler, [jwt])
     useEffect( () => retrieveMultipleDrinks(userJSON.favorites, setDrinkArray), [userJSON])
     
     return (

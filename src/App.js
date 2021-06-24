@@ -55,8 +55,8 @@ function App() {
           <Route path="/search-drink"> <SearchForm /> </Route>
           <Route path="/register"> <UserRegister /> </Route>
           <Route path="/login"> <UserLogin setJwt={setJwt} /> </Route>
-          <Route path="/favorites/:id" component={FavoriteListByID} />
-          <Route path="/:id" component={DrinkDetailByID} />
+          <Route path="/favorites"> <FavoriteListByID jwt={jwt} /> </Route>
+          <Route path="/:id"> <DrinkDetailByID /> </Route>
           <Route path="/"> <LandingPage /> </Route>
         </Switch>
       </Row>

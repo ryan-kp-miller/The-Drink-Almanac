@@ -2,8 +2,11 @@ import axios from 'axios'
 
 const apiBaseURL = "http://127.0.0.1:5000/api"
 
-const getUserByID = (userID) => {
-    return axios.get(`${apiBaseURL}/user/${userID}`).then(response => response.data)
+const getUserByJWT = (jwt) => {
+    const config = {
+        headers: {Authorization: `Bearer ${jwt}`}
+    }
+    return axios.get(`${apiBaseURL}/user`, config).then(response => response.data).catch(error => console.log(error.response.data))
 }
 
 const createUser = (username, password) => {
@@ -27,4 +30,4 @@ const loginUser = (username, password) => {
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export { getUserByID, createUser, loginUser }
+export { getUserByJWT, createUser, loginUser }
