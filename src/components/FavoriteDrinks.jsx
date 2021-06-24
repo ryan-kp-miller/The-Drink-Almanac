@@ -4,7 +4,7 @@ import { retrieveMultipleDrinks } from '../services/getDrinkData'
 import PageHeader from './PageHeader'
 import DrinkList from './DrinkList'
 
-const FavoriteListByID = ({ jwt }) => {
+const FavoriteDrinks = ({ jwt }) => {
     const [userJSON, setUserJSON] = useState({
         id: "",
         username: "",
@@ -32,4 +32,4 @@ const FavoriteListByID = ({ jwt }) => {
     )
 }
 
-export default FavoriteListByID
+export default FavoriteDrinks

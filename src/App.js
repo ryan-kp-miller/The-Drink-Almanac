@@ -12,7 +12,7 @@ import RandomDrink from './components/RandomDrink'
 import PopularDrinks from './components/PopularDrinks'
 import DrinkDetailByID from './components/DrinkDetailByID'
 import SearchForm from './components/SearchForm'
-import FavoriteListByID from './components/FavoriteListByID'
+import FavoriteListByID from './components/FavoriteDrinks'
 import UserRegister from './components/UserRegister'
 import UserLogin from './components/UserLogin'
 
