@@ -11,26 +11,27 @@ def print_response(response):
         else:
             print("Server data keys: ", data.keys())
 
-# check to see if the user already exists    
+
 user_payload = {
     'username': "test",
     'password': "test",
 }
-response = requests.get(API_BASE_URL + "user", json=user_payload)
-print_response(response)
 
-if response.status_code == 200:
-    user_id = response.json()['id']
-else:
-    # register a new user if the test user doesn't already exist
-    response = requests.post(API_BASE_URL + "register", json=user_payload)
-    print_response(response)
+# register a new user if the test user doesn't already exist
+response = requests.post(API_BASE_URL + "register", json=user_payload)
+print_response(response)
+if response.status_code == 201:
     user_id = response.json()['id']
 
 # log in as the user
 response = requests.post(API_BASE_URL + "login", json=user_payload)
 print_response(response)
 access_token = response.json()['access_token']
+auth_headers = {'Authorization': f'Bearer {access_token}'}
+
+# get the user's favorite drinks
+response = requests.get(API_BASE_URL + "user", headers=auth_headers)
+print_response(response)
 
 # add a favorite to the test user
 payload_list = [
@@ -42,7 +43,7 @@ for payload in payload_list:
     response = requests.post(
         API_BASE_URL + "favorite", 
         json=payload,
-        headers={'Authorization': f'Bearer {access_token}'}
+        headers=auth_headers
     )
     print_response(response)
 

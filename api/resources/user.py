@@ -25,8 +25,8 @@ class UserRegister(Resource):
 
 
 class User(Resource):
-    @jwt_required()
     @classmethod
+    @jwt_required()
     def get(cls):
         user_id = get_jwt_identity()
         user = UserModel.find_by_id(user_id)           
