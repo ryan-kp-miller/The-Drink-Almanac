@@ -1,5 +1,6 @@
 from flask_restx import Resource, reqparse
 from api.models.favorite import FavoriteModel
+from api.models.user import UserModel
 
 parser = reqparse.RequestParser()
 parser.add_argument('user_id',  int, required=True, help="The id of the user that is favoriting the drink")
@@ -15,6 +16,10 @@ class Favorite(Resource):
 
     def post(self):
         data = parser.parse_args()
+        user = UserModel.find_by_id(data['user_id'])
+        if not user:
+            return {'message': f"No user with the id {data['user_id']}"}
+
         favorite = FavoriteModel.find_by_user_and_drink_ids(**data)
         if favorite:
             return {'message': 'The user has already favorited this drink'}, 400
