@@ -10,18 +10,23 @@ const getDrinkByID = (drinkID) => {
     return axios.get(`${baseURL}/lookup.php?i=${drinkID}`).then(response => formatDrinkJSON(response.data.drinks[0]))
 }
 
-// const getDrinksByName = (drinkName) => {
-//     const responseArray = []
-//     axios.get(`${baseURL}/search.php?s=${drinkName}`).then(response => {
-//         response.data.drinks.forEach(drink =>
-//             responseArray.push(formatDrinkJSON(drink))
-//         )
-//     })
-//     return responseArray
-// }
-
 const getDrinksByName = (drinkName) => {
     return axios.get(`${baseURL}/search.php?s=${drinkName}`).then(response => response.data.drinks)
+}
+
+const retrieveMultipleDrinks = (drinkIDArray, setState) => {        
+    const promiseArray = []
+    const resultArray = []
+    drinkIDArray.forEach(drinkID => {
+        promiseArray.push(getDrinkByID(drinkID))
+    })
+
+    Promise.all(promiseArray).then(results => {
+        results.forEach(data => {
+            resultArray.push(data)
+        })
+        setState(resultArray)
+    })
 }
 
 const formatDrinkJSON = drinkJSON => {
@@ -55,4 +60,4 @@ const formatDrinkJSON = drinkJSON => {
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export { getRandomDrink, getDrinkByID, getDrinksByName, formatDrinkJSON }
+export { getRandomDrink, getDrinkByID, getDrinksByName, formatDrinkJSON, retrieveMultipleDrinks }
