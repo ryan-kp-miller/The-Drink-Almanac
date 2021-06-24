@@ -18,11 +18,24 @@ import UserLogin from './components/UserLogin'
 
 
 function App() {
+  const storedJwt = {
+    'access_token': localStorage.getItem('access_token'),
+    'refresh_token': localStorage.getItem('refresh_token')
+  }
   const [isDesktop, setIsDesktop] = useState(true)
-  const [jwt, setJwt] = useState({
+  const [jwt, setJwt] = useState(storedJwt || {
     'access_token': '',
     'refresh_token': ''
   })
+
+  const setStoreJwt = (newJwt) => {
+    localStorage.setItem('access_token', newJwt.access_token)
+    localStorage.setItem('access_token', newJwt.refresh_token)
+    setJwt(newJwt)
+  }
+
+  console.log('stored JWT')
+  console.log(storedJwt)
 
   useEffect(()=>{
     if (window.innerWidth <= 650){
@@ -54,7 +67,7 @@ function App() {
           <Route path="/popular-drinks"> <PopularDrinks /> </Route>
           <Route path="/search-drink"> <SearchForm /> </Route>
           <Route path="/register"> <UserRegister /> </Route>
-          <Route path="/login"> <UserLogin setJwt={setJwt} /> </Route>
+          <Route path="/login"> <UserLogin setJwt={setStoreJwt} /> </Route>
           <Route path="/favorites"> <FavoriteListByID jwt={jwt} /> </Route>
           <Route path="/:id"> <DrinkDetailByID /> </Route>
           <Route path="/"> <LandingPage /> </Route>
