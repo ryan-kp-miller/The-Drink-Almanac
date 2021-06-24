@@ -1,5 +1,6 @@
+from flask_jwt_extended.view_decorators import jwt_required
 from flask_restx import Resource, reqparse
-from flask_jwt_extended.utils import create_access_token, create_refresh_token
+from flask_jwt_extended.utils import create_access_token, create_refresh_token, get_jwt_identity
 
 from api.models.user import UserModel
 
@@ -24,15 +25,11 @@ class UserRegister(Resource):
 
 
 class User(Resource):
+    @jwt_required()
     @classmethod
     def get(cls):
-        data = _user_parser.parse_args()
-        user = UserModel.find_by_username(data['username'])
-        if not user:
-            return {'message': f"User with username {data['username']} not found."}, 404
-        if user.password != data['password']:
-            return {'message': f"Password was incorrect."}, 400
-            
+        user_id = get_jwt_identity()
+        user = UserModel.find_by_id(user_id)           
         return user.json(), 200
 
     @classmethod
