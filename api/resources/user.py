@@ -1,6 +1,5 @@
 from flask_restx import Resource, reqparse
-from flask_jwt_extended import jwt_required, get_jwt
-from flask_jwt_extended.utils import create_access_token, create_refresh_token, get_jwt_identity
+from flask_jwt_extended.utils import create_access_token, create_refresh_token
 
 from api.models.user import UserModel
 
