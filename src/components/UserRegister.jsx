@@ -1,12 +1,14 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import Alert from 'react-bootstrap/Alert'
 import PageHeader from "./PageHeader"
 import UserForm from "./UserForm"
-import { createUser } from '../services/getCreateUser'
+import { createUser } from '../services/userRequests'
 
 const UserRegister = () => {
     const [registerAlert, setRegisterAlert] = useState(undefined)
-    
+    const history = useHistory()
+
     var alertStyle = ""
     var alertMessage = ""
 
@@ -16,18 +18,23 @@ const UserRegister = () => {
         const promise = createUser(username, password)
         promise.then( () => {
             alertStyle = "success"
-            alertMessage = "Your account was created! Please go to the login page to sign in."
+            alertMessage = "Your account was created! Going to the log in page."
+            
+            // wait 2 seconds before going to home page
+            setTimeout(() => {
+                history.push("/login")
+            }, 2000)
         }).catch(error => {
             if(error.response.status === 400){
                 alertStyle = "danger"
                 alertMessage = `An account with the username "${username}" already exists. Please pick another one.`
             } else {
                 alertStyle = "danger"
-                alertMessage = "An error occurred when attempting to create your account. Please try again later"
+                alertMessage = "An error occurred when attempting to create your account. Please try again later."
             } 
         }).finally(() => {
             setRegisterAlert(
-                <Alert variant={alertStyle}>{alertMessage}</Alert>    
+                <Alert className="text-center" variant={alertStyle}>{alertMessage}</Alert>    
             )
         })
     }

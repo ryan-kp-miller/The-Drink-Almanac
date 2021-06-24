@@ -14,10 +14,16 @@ import DrinkDetailByID from './components/DrinkDetailByID'
 import SearchForm from './components/SearchForm'
 import FavoriteListByID from './components/FavoriteListByID'
 import UserRegister from './components/UserRegister'
+import UserLogin from './components/UserLogin'
 
 
 function App() {
   const [isDesktop, setIsDesktop] = useState(true)
+  const [jwtTokens, setJwtTokens] = useState({
+    'access_token': '',
+    'refresh_token': ''
+  })
+
   useEffect(()=>{
     if (window.innerWidth <= 650){
       setIsDesktop(false)
@@ -42,6 +48,7 @@ function App() {
           <Route path="/popular-drinks"> <PopularDrinks /> </Route>
           <Route path="/search-drink"> <SearchForm /> </Route>
           <Route path="/register"> <UserRegister /> </Route>
+          <Route path="/login"> <UserLogin setJwtTokens={setJwtTokens} /> </Route>
           <Route path="/favorites/:id" component={FavoriteListByID} />
           <Route path="/:id" component={DrinkDetailByID} />
           <Route path="/"> <LandingPage /> </Route>
