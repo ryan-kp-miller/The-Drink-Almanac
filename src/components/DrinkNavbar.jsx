@@ -44,7 +44,7 @@ const DrinkNavbar = ({ jwt, setJwt }) => {
             <Navbar.Collapse className="ml-auto" id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/">Home</Nav.Link>
-                    <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/random-drink">Random Drink</Nav.Link>
+                    <Nav.Link className="ml-auto" style={padding} onClick={unexpandNavbar} href="/random-drink">Random Drink</Nav.Link>
                     <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/popular-drinks">Popular Drinks</Nav.Link>
                     <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/search-drink">Search for a Drink</Nav.Link>
                     {  jwt.access_token === "" || jwt === undefined ?
