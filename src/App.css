@@ -72,3 +72,8 @@ body, html {
 #password-label {
     padding: 0;
 }
+
+#favorite-alert {
+    margin-top: 15px !important;
+    margin-bottom: 0px !important;
+}
