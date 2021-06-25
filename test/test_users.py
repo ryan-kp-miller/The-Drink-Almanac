@@ -40,6 +40,7 @@ payload_list = [
 
 # check if the user already favorited these drinks
 # if not, favorite the drink
+# then delete that favorite
 for payload in payload_list:
     response = requests.get(
         API_BASE_URL + "favorite", 
@@ -55,6 +56,14 @@ for payload in payload_list:
             headers=auth_headers
         )
         print_response(response)
+
+    response = requests.delete(
+        API_BASE_URL + "favorite", 
+        json=payload,
+        headers=auth_headers
+    )
+    print_response(response)
+    
 
 
 # delete the test user
