@@ -19,12 +19,12 @@ const UserLogin = ({ setJwt }) => {
         promise.then( response => {
             setJwt(response.data)
             alertStyle = "success"
-            alertMessage = "Login was successful! Going to the home page."
+            alertMessage = "Login was successful! Returning you to the previous page."
 
-            // wait 2 seconds before going to home page
+            // wait 1 second before returning the user to the previous page
             setTimeout(() => {
-                history.push("/")
-            }, 2000)
+                history.goBack()
+            }, 1000)
         }).catch(error => {
             if(error.response.status === 400){
                 alertStyle = "danger"
