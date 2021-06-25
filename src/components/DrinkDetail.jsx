@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Container, Row, Col, Image } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import { addFavorite, deleteFavorite, getUserByJWT } from '../services/userRequests'
 import PageHeader from './PageHeader'
 import Alert from 'react-bootstrap/Alert'
@@ -10,6 +10,7 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
     const [user, setUser] = useState({'id': undefined, 'favorites': []})
     const [isFavorited, setIsFavorited] = useState(false)
     const [favoriteAlert, setFavoriteAlert] = useState()
+    
     const favoriteEventListener = (event) => {
         event.preventDefault()
 
@@ -33,7 +34,6 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
             newUser.favorites.push(drinkJSON.drinkID)
             setUser(newUser)
         }).catch( error => {
-            console.log(error)
             // if the token expired, redirect to the login page
             if(error.response.data.msg === "Token has expired"){
                 history.push("/login")
@@ -45,7 +45,7 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
             }
         }).finally(() => {
             setFavoriteAlert(
-                <Alert className="text-center align-items-center" variant={alertStyle}>{alertMessage}</Alert>    
+                <Alert id="favorite-alert" className="text-center" variant={alertStyle} onClose={() => setFavoriteAlert()} dismissible>{alertMessage}</Alert>    
             )
         })
     }
@@ -64,9 +64,7 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
             } 
         }).catch( error => {
             //if token has expired, redirect to the login page
-            console.log(error)
             if(error.response.status === 401){
-                console.log("error 401")
                 if(error.response.data.msg === "Token has expired"){
                     history.push("/login")
                 }
@@ -81,15 +79,15 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
             <PageHeader pageTitle={drinkJSON.drinkName} additionalDiv={
                 <Container id="favorite-container">
                     <Row className="justify-content-center">
-                        <button type="button" className="btn btn-primary" onClick={ favoriteEventListener } variant="primary">
+                        <Button size="md" className="btn btn-primary" onClick={ favoriteEventListener } variant="primary">
                             {
                                 isFavorited ?
                                     "Unfavorite this drink" :
                                     "Favorite this drink!" 
                             }
-                        </button>
+                        </Button>
                     </Row>
-                    <Row className="justify-content-center">
+                    <Row className="d-flex justify-content-center align-items-center">
                         { favoriteAlert } 
                     </Row>
                 </Container>
