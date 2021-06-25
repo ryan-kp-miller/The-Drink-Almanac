@@ -49,12 +49,12 @@ const DrinkNavbar = ({ jwt, setJwt }) => {
                     <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/search-drink">Search for a Drink</Nav.Link>
                     {  jwt.access_token === "" || jwt === undefined ?
                         [
-                            <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/register">Sign Up</Nav.Link>,
-                            <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/login">Log In</Nav.Link>
+                            <Nav.Link key="1" as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/register">Sign Up</Nav.Link>,
+                            <Nav.Link key="2" as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/login">Log In</Nav.Link>
                         ] :
                         [
-                            <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/favorites">Favorited Drinks</Nav.Link>,
-                            <Nav.Link as={Link} className="ml-auto" style={padding} onClick={logout}         to="/">Log Out</Nav.Link>
+                            <Nav.Link key="1" as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/favorites">Favorited Drinks</Nav.Link>,
+                            <Nav.Link key="2" as={Link} className="ml-auto" style={padding} onClick={logout}         to="/">Log Out</Nav.Link>
                         ]
                     }
                 </Nav>
