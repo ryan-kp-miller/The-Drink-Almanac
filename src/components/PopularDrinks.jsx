@@ -6,12 +6,15 @@ import { retrieveMultipleDrinks } from '../services/getDrinkData'
 
 const PopularDrinks = () => {   
     const [drinkJSONArray, setDrinkArray] = useState([])
-    const popularDrinkIDs = ["11000", "11001", "11002", 
-    "11003", "11004", "11005", "11006", "11007",
-    "11008", "11009"]
 
     //when page is loaded, make API request for random drink data
-    useEffect( () => retrieveMultipleDrinks(popularDrinkIDs, setDrinkArray), [])
+    useEffect( () => {
+        const popularDrinkIDs = ["11000", "11001", "11002", 
+        "11003", "11004", "11005", "11006", "11007",
+        "11008", "11009"]
+    
+        retrieveMultipleDrinks(popularDrinkIDs, setDrinkArray)
+    }, [])
 
     return (
         <div className="page-background">
