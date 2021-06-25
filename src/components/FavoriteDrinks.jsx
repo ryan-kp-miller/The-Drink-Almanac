@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react'
+import { useHistory } from 'react-router-dom'
 import { getUserByJWT } from '../services/userRequests'
 import { retrieveMultipleDrinks } from '../services/getDrinkData'
 import PageHeader from './PageHeader'
 import DrinkList from './DrinkList'
 
 const FavoriteDrinks = ({ jwt }) => {
+    const history = useHistory()
     const [userJSON, setUserJSON] = useState({
         id: "",
         username: "",
@@ -20,6 +22,13 @@ const FavoriteDrinks = ({ jwt }) => {
         }
     }
     
+    // send user to login page if no JWT
+    useEffect( () => {
+        if (jwt.access_token === ''){
+            history.push("/login")
+        }
+    }, [jwt, history])
+
     //when userJSON.favorites is modified, make API request for all drink ids in favorites 
     useEffect(getUserHandler, [jwt])
     useEffect( () => retrieveMultipleDrinks(userJSON.favorites, setDrinkArray), [userJSON])
