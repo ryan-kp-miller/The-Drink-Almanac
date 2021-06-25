@@ -57,13 +57,13 @@ function App() {
       </Row>
       <Row className="app-content">
         <Switch>
-          <Route path="/random-drink"> <RandomDrink /> </Route>
+          <Route path="/random-drink"> <RandomDrink jwt={jwt} /> </Route>
           <Route path="/popular-drinks"> <PopularDrinks /> </Route>
           <Route path="/search-drink"> <SearchForm /> </Route>
           <Route path="/register"> <UserRegister /> </Route>
           <Route path="/login"> <UserLogin setJwt={setStoreJwt} /> </Route>
           <Route path="/favorites"> <FavoriteListByID jwt={jwt} /> </Route>
-          <Route path="/:id"> <DrinkDetailByID /> </Route>
+          <Route path="/:id"> <DrinkDetailByID jwt={jwt} /> </Route>
           <Route path="/"> <LandingPage /> </Route>
         </Switch>
       </Row>
