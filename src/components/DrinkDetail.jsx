@@ -13,6 +13,10 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
     const favoriteEventListener = (event) => {
         event.preventDefault()
 
+        if(jwt.access_token === ''){
+            history.push('/login')
+        }
+
         var alertStyle
         var alertMessage
         let promise = undefined
@@ -41,12 +45,11 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
             }
         }).finally(() => {
             setFavoriteAlert(
-                <Alert className="text-center" variant={alertStyle}>{alertMessage}</Alert>    
+                <Alert className="text-center align-items-center" variant={alertStyle}>{alertMessage}</Alert>    
             )
         })
     }
 
-    
     //once the drink data has been retrieved, check if it's been favorited by the user already
     useEffect(() => {
         const promise = getUserByJWT(jwt.access_token)
@@ -70,31 +73,26 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
             }
             setIsFavorited(false)
         })
-    }, [drinkJSON, jwt])
+    }, [drinkJSON, jwt, history])
 
 
     return (
         <div>
             <PageHeader pageTitle={drinkJSON.drinkName} additionalDiv={
-                <Col className="justify-content-center">
-                    <Container>
-                        <button type="button" className="btn btn-primary row" onClick={ favoriteEventListener } variant="primary">
+                <Container id="favorite-container">
+                    <Row className="justify-content-center">
+                        <button type="button" className="btn btn-primary" onClick={ favoriteEventListener } variant="primary">
                             {
                                 isFavorited ?
                                     "Unfavorite this drink" :
                                     "Favorite this drink!" 
                             }
                         </button>
-                    </Container>
-                    <Container>
-                        { 
-                            <div className="row container">
-                                <br/>
-                                {favoriteAlert} 
-                            </div>
-                        }
-                    </Container>
-                </Col>
+                    </Row>
+                    <Row className="justify-content-center">
+                        { favoriteAlert } 
+                    </Row>
+                </Container>
             }/>
             <Container>
                 <Container>
