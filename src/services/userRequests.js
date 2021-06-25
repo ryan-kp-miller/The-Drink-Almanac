@@ -2,11 +2,11 @@ import axios from 'axios'
 
 const apiBaseURL = "http://127.0.0.1:5000/api"
 
-const getUserByJWT = (jwt) => {
+const getUserByJWT = (access_token) => {
     const config = {
-        headers: {Authorization: `Bearer ${jwt}`}
+        headers: {Authorization: `Bearer ${access_token}`}
     }
-    return axios.get(`${apiBaseURL}/user`, config).then(response => response.data).catch(error => console.log(error.response.data))
+    return axios.get(`${apiBaseURL}/user`, config).then(response => response.data)
 }
 
 const createUser = (username, password) => {
@@ -29,5 +29,20 @@ const loginUser = (username, password) => {
     )
 }
 
+const addFavorite = (access_token, drinkID) => {
+    const config = {
+        headers: {Authorization: `Bearer ${access_token}`}
+    }
+    return axios.post(`${apiBaseURL}/favorite`, {'drink_id': drinkID}, config).then(response => response.data)
+}
+
+const deleteFavorite = (access_token, drinkID) => {
+    const config = {
+        headers: {Authorization: `Bearer ${access_token}`},
+        data: {'drink_id': drinkID}
+    }
+    return axios.delete(`${apiBaseURL}/favorite`, config)
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export { getUserByJWT, createUser, loginUser }
+export { getUserByJWT, createUser, loginUser, addFavorite, deleteFavorite }
