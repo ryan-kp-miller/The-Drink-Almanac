@@ -19,23 +19,17 @@ import UserLogin from './components/UserLogin'
 
 function App() {
   const storedJwt = {
-    'access_token': localStorage.getItem('access_token'),
-    'refresh_token': localStorage.getItem('refresh_token')
+    'access_token': localStorage.getItem('access_token') || '',
+    'refresh_token': localStorage.getItem('refresh_token') || ''
   }
   const [isDesktop, setIsDesktop] = useState(true)
-  const [jwt, setJwt] = useState(storedJwt || {
-    'access_token': '',
-    'refresh_token': ''
-  })
+  const [jwt, setJwt] = useState(storedJwt)
 
   const setStoreJwt = (newJwt) => {
     localStorage.setItem('access_token', newJwt.access_token)
-    localStorage.setItem('access_token', newJwt.refresh_token)
+    localStorage.setItem('refresh_token', newJwt.refresh_token)
     setJwt(newJwt)
   }
-
-  console.log('stored JWT')
-  console.log(storedJwt)
 
   useEffect(()=>{
     if (window.innerWidth <= 650){

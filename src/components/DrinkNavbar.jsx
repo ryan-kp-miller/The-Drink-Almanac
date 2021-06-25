@@ -12,6 +12,8 @@ const DrinkNavbar = ({ jwt, setJwt }) => {
     const padding = {paddingLeft: 35}
     
     const logout = () => {
+        localStorage.removeItem('access_token')
+        localStorage.removeItem('refresh_token')
         setJwt({
             access_token: '',
             refresh_token: ''
@@ -45,7 +47,7 @@ const DrinkNavbar = ({ jwt, setJwt }) => {
                     <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/random-drink">Random Drink</Nav.Link>
                     <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/popular-drinks">Popular Drinks</Nav.Link>
                     <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/search-drink">Search for a Drink</Nav.Link>
-                    {  jwt.access_token === "" ?
+                    {  jwt.access_token === "" || jwt === undefined ?
                         [
                             <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/register">Sign Up</Nav.Link>,
                             <Nav.Link as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/login">Log In</Nav.Link>
