@@ -1,6 +1,6 @@
 import { Container, Row, Col, Image } from 'react-bootstrap'
 
-const DrinkDetail = ({ drinkJSON, getDrinkHandler }) => {
+const DrinkDetail = ({ drinkJSON }) => {
     return (
         <div>
             <Container>
