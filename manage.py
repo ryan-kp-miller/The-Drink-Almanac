@@ -1,3 +1,4 @@
+import os
 from api.app import create_app
 from api.db import db
 
@@ -12,6 +13,20 @@ def create_tables():
 
 db.init_app(app)
 
+# reroute to index.html on error
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+
+# set root route to be index.html in react build directory
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        host='0.0.0.0', 
+        debug=False, 
+        port=os.environ.get('PORT', 80)
+    )
