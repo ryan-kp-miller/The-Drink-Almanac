@@ -11,6 +11,10 @@ from api.resources.favorite import Favorite
 DB_URI = os.environ.get('DATABASE_URL')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+# heroku uses the old postgres dialect that is no longer supported by flask-sqlalchemy
+# so manually switching to the new one
+DB_URI = DB_URI.replace("postgres://", "postgresql://")
+
 def create_app():
     app = Flask(__name__, static_folder='./build', static_url_path='/')
     CORS(app)
