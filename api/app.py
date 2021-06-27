@@ -1,13 +1,15 @@
+import os
 from datetime import timedelta
 from flask import Flask
 from flask_restx import Api
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 
-from config import DB_URI, SECRET_KEY
 from api.resources.user import User, UserRegister, UserLogin
 from api.resources.favorite import Favorite
-
+# from config import DB_URI, SECRET_KEY
+DB_URI = os.environ.get('DATABASE_URL')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 def create_app():
     app = Flask(__name__)
