@@ -31,8 +31,8 @@ const UserForm = ({ formEventListener, formAlert, formButtonLabel }) => {
                 </Form.Group>
 
                 <Form.Group size="lg" controlId="password">
-                    <Form.Label id="password-label" className="col-10">Password</Form.Label>
-                    <Button className="col-2" variant={passwordFieldType === 'text' ? 'dark' : 'light'} onClick={showHidePassword}>
+                    <Form.Label id="password-label" className="col-8">Password</Form.Label>
+                    <Button className="col-4" variant={passwordFieldType === 'text' ? 'dark' : 'light'} onClick={showHidePassword}>
                         {passwordFieldType === 'text' ? 'Hide' : 'Show'}
                     </Button>
                     <Form.Control value={password} type={passwordFieldType} onChange={(e) => {setPassword(e.target.value)}}/>
