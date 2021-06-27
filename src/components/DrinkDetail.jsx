@@ -11,6 +11,12 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
     const [isFavorited, setIsFavorited] = useState(false)
     const [favoriteAlert, setFavoriteAlert] = useState()
     
+    const createFavoriteAlert = (alertStyle, alertMessage) => {
+        setFavoriteAlert(
+            <Alert id="favorite-alert" className="text-center" variant={alertStyle} onClose={() => setFavoriteAlert()} dismissible>{alertMessage}</Alert>    
+        )
+    }
+
     const favoriteEventListener = (event) => {
         event.preventDefault()
 
@@ -27,26 +33,38 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
             promise = addFavorite(jwt.access_token, drinkJSON.drinkID)
         }
         promise.then( () => {
+            
+            // add/remove the new drink to the user's favorites
+            const newUser = user
+            if (!isFavorited){
+                newUser.favorites.push(drinkJSON.drinkID)
+            }else{
+                var index = newUser.favorites.indexOf(drinkJSON.drinkID);
+                if (index !== -1) {
+                    newUser.favorites.splice(index, 1);
+                }
+            }
+            setUser(newUser)
+            
+            setIsFavorited(!isFavorited)
+
+            // show the success alert
             alertStyle = "success"
             alertMessage = `Succesfully ${isFavorited ? "unfavorited" : "favorited"} this drink!`
-            setIsFavorited(!isFavorited)
-            const newUser = user
-            newUser.favorites.push(drinkJSON.drinkID)
-            setUser(newUser)
+            createFavoriteAlert(alertStyle, alertMessage)
         }).catch( error => {
-            // if the token expired, redirect to the login page
-            if(error.response.data.msg === "Token has expired"){
-                history.push("/login")
+            alertStyle = "danger"
+            alertMessage = `An error occurred when attempting to ${isFavorited ? "unfavorite" : "favorite"} this drink. Please try again later.` 
+                
+            if(error.response){
+                // if the token expired, redirect to the login page
+                if(error.response.data.msg === "Token has expired"){
+                    history.push("/login")
+                } 
+            } 
+            else {
+                createFavoriteAlert(alertStyle, alertMessage)
             }
-            // otherwise, show error alert
-            else{
-                alertStyle = "danger"
-                alertMessage = `An error occurred when attempting to ${isFavorited ? "unfavorite" : "favorite"} this drink. Please try again later.` 
-            }
-        }).finally(() => {
-            setFavoriteAlert(
-                <Alert id="favorite-alert" className="text-center" variant={alertStyle} onClose={() => setFavoriteAlert()} dismissible>{alertMessage}</Alert>    
-            )
         })
     }
 

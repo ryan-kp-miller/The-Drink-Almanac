@@ -26,13 +26,16 @@ const UserLogin = ({ setJwt }) => {
                 history.goBack()
             }, 1000)
         }).catch(error => {
-            if(error.response.status === 400){
-                alertStyle = "danger"
-                alertMessage = `Invalid username or password.`
-            } else {
-                alertStyle = "danger"
+            alertStyle = "danger"
+            if (error.response){
+                if(error.response.status === 400){
+                    alertMessage = `Invalid username or password.`
+                } else {
+                    alertMessage = "An error occurred when attempting to log into your account. Please try again later."
+                } 
+            }else {
                 alertMessage = "An error occurred when attempting to log into your account. Please try again later."
-            } 
+            }
         }).finally(() => {
             setLoginAlert(
                 <Alert className="text-center" variant={alertStyle}>{alertMessage}</Alert>    

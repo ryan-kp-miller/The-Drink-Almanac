@@ -25,13 +25,16 @@ const UserRegister = () => {
                 history.push("/login")
             }, 2000)
         }).catch(error => {
-            if(error.response.status === 400){
-                alertStyle = "danger"
-                alertMessage = `An account with the username "${username}" already exists. Please pick another one.`
-            } else {
-                alertStyle = "danger"
-                alertMessage = "An error occurred when attempting to create your account. Please try again later."
-            } 
+            alertStyle = "danger"
+            if (error.response){
+                if(error.response.status === 400){
+                    alertMessage = `Invalid username or password.`
+                } else {
+                    alertMessage = "An error occurred when attempting to log into your account. Please try again later."
+                } 
+            }else {
+                alertMessage = "An error occurred when attempting to log into your account. Please try again later."
+            }
         }).finally(() => {
             setRegisterAlert(
                 <Alert className="text-center" variant={alertStyle}>{alertMessage}</Alert>    
