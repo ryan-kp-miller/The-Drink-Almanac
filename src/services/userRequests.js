@@ -1,7 +1,10 @@
 import axios from 'axios'
 
-const apiBaseURL = "/api"
-// const apiBaseURL = "http://127.0.0.1:5000/api"
+// for prod
+const apiBaseURL = "https://thedrinkalmanacapi.herokuapp.com"
+
+// for dev
+// const apiBaseURL = "https://127.0.0.1:5000/api"
 
 const getUserByJWT = (access_token) => {
     const config = {
