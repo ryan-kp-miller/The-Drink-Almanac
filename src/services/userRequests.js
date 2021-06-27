@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const apiBaseURL = "http://127.0.0.1:5000/api"
+const apiBaseURL = "/api"
+// const apiBaseURL = "http://127.0.0.1:5000/api"
 
 const getUserByJWT = (access_token) => {
     const config = {
