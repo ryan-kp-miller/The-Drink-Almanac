@@ -12,7 +12,7 @@ DB_URI = os.environ.get('DATABASE_URL')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder='./build', static_url_path='/')
     CORS(app)
 
     # tell SQLAlchemy where to find the database
