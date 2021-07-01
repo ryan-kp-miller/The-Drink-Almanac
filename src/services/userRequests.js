@@ -4,7 +4,7 @@ import axios from 'axios'
 const apiBaseURL = "https://thedrinkalmanacapi.herokuapp.com"
 
 // for dev
-// const apiBaseURL = "https://127.0.0.1:5000/api"
+// const apiBaseURL = "http://127.0.0.1:5000"
 
 const getUserByJWT = (access_token) => {
     const config = {
@@ -15,7 +15,7 @@ const getUserByJWT = (access_token) => {
 
 const createUser = (username, password) => {
     return axios.post(
-        `${apiBaseURL}/register`, 
+        `${apiBaseURL}/user/register`, 
         {
             'username': username,
             'password': password       
@@ -25,7 +25,7 @@ const createUser = (username, password) => {
 
 const loginUser = (username, password) => {
     return axios.post(
-        `${apiBaseURL}/login`, 
+        `${apiBaseURL}/user/login`, 
         {
             'username': username,
             'password': password       
