@@ -37,15 +37,14 @@ const addFavorite = (access_token, drinkID) => {
     const config = {
         headers: {Authorization: `Bearer ${access_token}`}
     }
-    return axios.post(`${apiBaseURL}/favorite`, {'drink_id': drinkID}, config).then(response => response.data)
+    return axios.post(`${apiBaseURL}/favorite/${drinkID}`, {}, config).then(response => response.data)
 }
 
 const deleteFavorite = (access_token, drinkID) => {
     const config = {
         headers: {Authorization: `Bearer ${access_token}`},
-        data: {'drink_id': drinkID}
     }
-    return axios.delete(`${apiBaseURL}/favorite`, config)
+    return axios.delete(`${apiBaseURL}/favorite/${drinkID}`, config)
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
