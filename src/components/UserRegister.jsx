@@ -28,7 +28,7 @@ const UserRegister = () => {
             alertStyle = "danger"
             if (error.response){
                 if(error.response.status === 400){
-                    alertMessage = `Invalid username or password.`
+                    alertMessage = `A user with that username already exists.`
                 } else {
                     alertMessage = "An error occurred when attempting to log into your account. Please try again later."
                 } 
