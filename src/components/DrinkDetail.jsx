@@ -70,25 +70,27 @@ const DrinkDetail = ({ jwt, drinkJSON, additionalButton }) => {
 
     //once the drink data has been retrieved, check if it's been favorited by the user already
     useEffect(() => {
-        const promise = getUserByJWT(jwt.access_token)
-        promise.then( data => {
-            if(data){
-                setUser(data)
-                if(data.favorites.includes(Number(drinkJSON.drinkID))){
-                    setIsFavorited(true)
-                }else {
-                    setIsFavorited(false)
-                }   
-            } 
-        }).catch( error => {
-            //if token has expired, redirect to the login page
-            if(error.response.status === 401){
-                if(error.response.data.msg === "Token has expired"){
-                    history.push("/login")
+        if(jwt.access_token !== ''){
+            const promise = getUserByJWT(jwt.access_token)
+            promise.then( data => {
+                if(data){
+                    setUser(data)
+                    if(data.favorites.includes(Number(drinkJSON.drinkID))){
+                        setIsFavorited(true)
+                    }else {
+                        setIsFavorited(false)
+                    }   
+                } 
+            }).catch( error => {
+                //if token has expired, redirect to the login page
+                if(error.response.status === 401){
+                    if(error.response.data.msg === "Token has expired"){
+                        history.push("/login")
+                    }
                 }
-            }
-            setIsFavorited(false)
-        })
+                setIsFavorited(false)
+            })
+        }
     }, [drinkJSON, jwt, history])
 
 
@@ -123,7 +125,7 @@ const DrinkDetail = ({ jwt, drinkJSON, additionalButton }) => {
             <Container>
                 <Container>
                     <div className="row" id="drink-details">
-                        <Col md={7} lg={7} xs={12}>
+                        <Col md={7} xs={12}>
                             <Card>
                                 <Card.Body>
                                     <Card.Title>Ingredients</Card.Title>
@@ -144,9 +146,9 @@ const DrinkDetail = ({ jwt, drinkJSON, additionalButton }) => {
                                 </Card.Body>
                             </Card>
                         </Col>
-                        <div className="col-lg-5 col-md-5 col-sm-3 d-flex justify-content-center">
+                        <Col md={5} sm={3} className="d-flex justify-content-center">
                             {<Image src={ drinkJSON.imgURL } alt="..." id="drink-detail-img" className="img-thumbnail" />}
-                        </div>
+                        </Col>
                     </div>
                 </Container>
             </Container>
