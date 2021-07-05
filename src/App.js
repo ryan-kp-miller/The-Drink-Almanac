@@ -19,58 +19,48 @@ import UserDeleteAccount from './components/UserDeleteAccount'
 
 
 function App() {
-  const storedJwt = {
-    'access_token': localStorage.getItem('access_token') || '',
-    'refresh_token': localStorage.getItem('refresh_token') || ''
-  }
-  const [isDesktop, setIsDesktop] = useState(true)
-  const [jwt, setJwt] = useState(storedJwt)
-
-  const setStoreJwt = (newJwt) => {
-    localStorage.setItem('access_token', newJwt.access_token)
-    localStorage.setItem('refresh_token', newJwt.refresh_token)
-    setJwt(newJwt)
-  }
-
-  useEffect(()=>{
-    if (window.innerWidth <= 650){
-      setIsDesktop(false)
+    const storedJwt = {
+        'access_token': localStorage.getItem('access_token') || '',
+        'refresh_token': localStorage.getItem('refresh_token') || ''
     }
-  }, [])
+    const [jwt, setJwt] = useState(storedJwt)
+    const setStoreJwt = (newJwt) => {
+        localStorage.setItem('access_token', newJwt.access_token)
+        localStorage.setItem('refresh_token', newJwt.refresh_token)
+        setJwt(newJwt)
+    }
+    const [isDesktop, setIsDesktop] = useState(true)
 
-  // to help iOS scrolling
-  const preventDefault = e => e.preventDefault();
-  // When rendering our container
-  window.addEventListener('touchmove', preventDefault, {
-    passive: false
-  });
-  // Remember to clean up when removing it
-  window.removeEventListener('touchmove', preventDefault);
+    useEffect(()=>{
+        if (window.innerWidth <= 650){
+            setIsDesktop(false)
+        }
+    }, [])
 
-  return (
-    <Router>
-      <Row className="app-row"> 
-        <DrinkNavbar 
-          isDesktop={isDesktop} 
-          jwt={jwt} 
-          setJwt={setJwt} 
-        /> 
-      </Row>
-      <Row className="app-content">
-        <Switch>
-          <Route path="/random-drink"> <RandomDrink jwt={jwt} /> </Route>
-          <Route path="/popular-drinks"> <PopularDrinks /> </Route>
-          <Route path="/search-drink"> <SearchForm /> </Route>
-          <Route path="/register"> <UserRegister /> </Route>
-          <Route path="/delete-account"> <UserDeleteAccount setJwt={setStoreJwt} /> </Route>
-          <Route path="/login"> <UserLogin setJwt={setStoreJwt} /> </Route>
-          <Route path="/favorites"> <FavoriteListByID jwt={jwt} /> </Route>
-          <Route path="/:id"> <DrinkDetailByID jwt={jwt} /> </Route>
-          <Route path="/"> <LandingPage /> </Route>
-        </Switch>
-      </Row>
-    </Router>
-  );
+    return (
+        <Router>
+            <Row className="app-row"> 
+                <DrinkNavbar 
+                    isDesktop={isDesktop} 
+                    jwt={jwt} 
+                    setJwt={setJwt} 
+                /> 
+            </Row>
+            <Row className={`app-content ${!isDesktop ? 'iphone-buffer' : ''}`}>
+                <Switch>
+                    <Route path="/random-drink"> <RandomDrink jwt={jwt} /> </Route>
+                    <Route path="/popular-drinks"> <PopularDrinks /> </Route>
+                    <Route path="/search-drink"> <SearchForm /> </Route>
+                    <Route path="/register"> <UserRegister /> </Route>
+                    <Route path="/delete-account"> <UserDeleteAccount setJwt={setStoreJwt} /> </Route>
+                    <Route path="/login"> <UserLogin setJwt={setStoreJwt} /> </Route>
+                    <Route path="/favorites"> <FavoriteListByID jwt={jwt} /> </Route>
+                    <Route path="/:id"> <DrinkDetailByID jwt={jwt} /> </Route>
+                    <Route path="/"> <LandingPage /> </Route>
+                </Switch>
+            </Row>
+        </Router>
+    );
 }
 
 export default App;
