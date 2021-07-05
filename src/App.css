@@ -1,6 +1,9 @@
 body, html {
     height: 100vh;
     width: 100vw;
+
+    /* prevent background scrolling; issue on mobile devices */
+    position: fixed; 
 }
 
 #root {
@@ -15,27 +18,19 @@ body, html {
     background-size: cover;
 }
 
-.is-scrollLocked {
-    overflow: hidden;
-}
-
-.is-momentumScrollable {
-    -webkit-overflow-scrolling: touch;
-}
-
 .app-row {
     width: 100vw !important;
     margin: 0px !important;
     padding: 0px !important;
-    /* overflow-x: hidden !important; */
 }
 
 .app-content {
     width: 100vw !important;
     height: 90vh !important;
     margin: 0px !important;
-    padding: 0px !important;
+    padding: 0px;
     overflow-x: hidden !important;
+    overflow-y: visible;
 }
 
 .page-background {
@@ -76,4 +71,13 @@ body, html {
 #favorite-alert {
     margin-top: 15px !important;
     margin-bottom: 0px !important;
+}
+
+.page-intro-card {
+    background-color: #c7c7c7;
+    margin: 10px;
+}
+
+.iphone-buffer {
+    padding-bottom: 75px !important;
 }
