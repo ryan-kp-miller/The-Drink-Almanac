@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Container, Row, Col, Image, Button } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button, Card } from 'react-bootstrap'
 import { addFavorite, deleteFavorite, getUserByJWT } from '../services/userRequests'
 import PageHeader from './PageHeader'
 import Alert from 'react-bootstrap/Alert'
@@ -124,16 +124,23 @@ const DrinkDetail = ({ jwt, drinkJSON, additionalButton }) => {
                 <Container>
                     <div className="row" id="drink-details">
                         <Col md={7} lg={7} xs={12}>
-                            <Row>
-                                <ul>
-                                    { 
-                                        drinkJSON.ingredients.map((inst) => <li key={`${inst}`}>{`${inst}`}</li>)
-                                    }
-                                </ul> 
-                            </Row>
-                            <Row>
-                                <p> {drinkJSON.instructions} </p>
-                            </Row>
+                            <Card>
+                                <Card.Body>
+                                    <Card.Title>Ingredients</Card.Title>
+                                    <Card.Text>
+                                        <ul>
+                                            { 
+                                                drinkJSON.ingredients.map((inst) => <li key={`${inst}`}>{`${inst}`}</li>)
+                                            }
+                                        </ul> 
+                                    </Card.Text>
+
+                                    <Card.Title>Instructions</Card.Title>
+                                    <Card.Text>
+                                        <p> {drinkJSON.instructions} </p>
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
                         </Col>
                         <div className="col-lg-5 col-md-5 col-sm-3 d-flex justify-content-center">
                             {<Image src={ drinkJSON.imgURL } alt="..." id="drink-detail-img" className="img-thumbnail" />}
