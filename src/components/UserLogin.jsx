@@ -28,7 +28,7 @@ const UserLogin = ({ setJwt }) => {
         }).catch(error => {
             alertStyle = "danger"
             if (error.response){
-                if(error.response.status === 400){
+                if(error.response.status === 400 || error.response.status === 404){
                     alertMessage = `Invalid username or password.`
                 } else {
                     alertMessage = "An error occurred when attempting to log into your account. Please try again later."
