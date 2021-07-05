@@ -55,7 +55,7 @@ function App() {
                     <Route path="/delete-account"> <UserDeleteAccount setJwt={setStoreJwt} /> </Route>
                     <Route path="/login"> <UserLogin setJwt={setStoreJwt} /> </Route>
                     <Route path="/favorites"> <FavoriteListByID jwt={jwt} /> </Route>
-                    <Route path="/:id"> <DrinkDetailByID jwt={jwt} /> </Route>
+                    <Route path="/drink/:id"> <DrinkDetailByID jwt={jwt} /> </Route>
                     <Route path="/"> <LandingPage /> </Route>
                 </Switch>
             </Row>
