@@ -125,7 +125,7 @@ const DrinkDetail = ({ jwt, drinkJSON, additionalButton }) => {
             <Container>
                 <Container>
                     <div className="row" id="drink-details">
-                        <Col md={7} xs={12}>
+                        <Col md={7} xs={12} style={{paddingBottom: '3%'}}>
                             <Card>
                                 <Card.Body>
                                     <Card.Title>Ingredients</Card.Title>
@@ -146,7 +146,7 @@ const DrinkDetail = ({ jwt, drinkJSON, additionalButton }) => {
                                 </Card.Body>
                             </Card>
                         </Col>
-                        <Col md={5} sm={3} className="d-flex justify-content-center">
+                        <Col md={5} sm={12} className="d-flex justify-content-center">
                             {<Image src={ drinkJSON.imgURL } alt="..." id="drink-detail-img" className="img-thumbnail" />}
                         </Col>
                     </div>
