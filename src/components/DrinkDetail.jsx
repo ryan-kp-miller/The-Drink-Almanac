@@ -5,7 +5,7 @@ import PageHeader from './PageHeader'
 import Alert from 'react-bootstrap/Alert'
 import { useHistory } from 'react-router-dom'
 
-const DrinkDetail = ({ jwt, drinkJSON }) => {
+const DrinkDetail = ({ jwt, drinkJSON, additionalButton }) => {
     const history = useHistory()
     const [user, setUser] = useState({'id': undefined, 'favorites': []})
     const [isFavorited, setIsFavorited] = useState(false)
@@ -97,13 +97,23 @@ const DrinkDetail = ({ jwt, drinkJSON }) => {
             <PageHeader pageTitle={drinkJSON.drinkName} additionalDiv={
                 <Container id="favorite-container">
                     <Row className="justify-content-center">
-                        <Button size="md" className="btn btn-primary" onClick={ favoriteEventListener } variant="primary">
-                            {
-                                isFavorited ?
-                                    "Unfavorite this drink" :
-                                    "Favorite this drink!" 
-                            }
-                        </Button>
+                        {/* center button if there isn't an additional one, otherwise right align */}
+                        <Col className={`d-flex ${additionalButton ? 'justify-content-end' : 'justify-content-center'}`}>
+                            <Button size="md" className="btn btn-primary" onClick={ favoriteEventListener } variant="primary">
+                                {
+                                    isFavorited ?
+                                        "Unfavorite this drink" :
+                                        "Favorite this drink" 
+                                }
+                            </Button>
+                        </Col>
+                        {
+                            additionalButton ?
+                                <Col className="d-flex justify-content-start">
+                                    { additionalButton }
+                                </Col> :
+                                undefined
+                        }
                     </Row>
                     <Row className="d-flex justify-content-center align-items-center">
                         { favoriteAlert } 
