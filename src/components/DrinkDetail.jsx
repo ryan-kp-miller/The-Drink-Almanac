@@ -127,18 +127,20 @@ const DrinkDetail = ({ jwt, drinkJSON, additionalButton }) => {
                             <Card>
                                 <Card.Body>
                                     <Card.Title>Ingredients</Card.Title>
-                                    <Card.Text>
+
+                                    {/* cannot use Card.Text with an unordered list, so using div instead */}
+                                    <div className="card-text">
                                         <ul>
                                             { 
                                                 drinkJSON.ingredients.map((inst) => <li key={`${inst}`}>{`${inst}`}</li>)
                                             }
                                         </ul> 
-                                    </Card.Text>
+                                    </div>
 
                                     <Card.Title>Instructions</Card.Title>
-                                    <Card.Text>
+                                    <div className="card-text">
                                         <p> {drinkJSON.instructions} </p>
-                                    </Card.Text>
+                                    </div>
                                 </Card.Body>
                             </Card>
                         </Col>
