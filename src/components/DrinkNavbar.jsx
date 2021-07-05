@@ -54,7 +54,8 @@ const DrinkNavbar = ({ jwt, setJwt }) => {
                         ] :
                         [
                             <Nav.Link key="1" as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/favorites">Favorited Drinks</Nav.Link>,
-                            <Nav.Link key="2" as={Link} className="ml-auto" style={padding} onClick={logout}         to="/">Log Out</Nav.Link>
+                            <Nav.Link key="2" as={Link} className="ml-auto" style={padding} onClick={logout}         to="/">Log Out</Nav.Link>,
+                            <Nav.Link key="3" as={Link} className="ml-auto" style={padding} onClick={unexpandNavbar} to="/delete-account">Delete Account</Nav.Link>
                         ]
                     }
                 </Nav>

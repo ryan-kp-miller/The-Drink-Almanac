@@ -33,6 +33,18 @@ const loginUser = (username, password) => {
     )
 }
 
+const deleteUser = (username, password) => {
+    return axios.delete(
+        `${apiBaseURL}/user`, 
+        { data: 
+            {
+                'username': username,
+                'password': password       
+            }
+        }
+    )
+}
+
 const addFavorite = (access_token, drinkID) => {
     const config = {
         headers: {Authorization: `Bearer ${access_token}`}
@@ -48,4 +60,4 @@ const deleteFavorite = (access_token, drinkID) => {
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export { getUserByJWT, createUser, loginUser, addFavorite, deleteFavorite }
+export { getUserByJWT, createUser, loginUser, addFavorite, deleteFavorite, deleteUser }

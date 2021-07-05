@@ -15,6 +15,7 @@ import SearchForm from './components/SearchForm'
 import FavoriteListByID from './components/FavoriteDrinks'
 import UserRegister from './components/UserRegister'
 import UserLogin from './components/UserLogin'
+import UserDeleteAccount from './components/UserDeleteAccount'
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
           <Route path="/popular-drinks"> <PopularDrinks /> </Route>
           <Route path="/search-drink"> <SearchForm /> </Route>
           <Route path="/register"> <UserRegister /> </Route>
+          <Route path="/delete-account"> <UserDeleteAccount setJwt={setStoreJwt} /> </Route>
           <Route path="/login"> <UserLogin setJwt={setStoreJwt} /> </Route>
           <Route path="/favorites"> <FavoriteListByID jwt={jwt} /> </Route>
           <Route path="/:id"> <DrinkDetailByID jwt={jwt} /> </Route>
