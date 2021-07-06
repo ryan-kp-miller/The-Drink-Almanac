@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+# The Drink Almanac
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Soon after moving into my new apartment in Chicago, I went out for drinks and paid over $100. That's when I decided to make [TheDrinkAlmanac.herokuapp.com](https://thedrinkalmanac.herokuapp.com).
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+![The Drink Almanac's Landing Page](screenshots/home.png)
 
-### `npm start`
+The Drink Almanac lets you quickly find the ingredients and instructions for hundreds of drinks (alcoholic and some non-alcoholic options). If you like a drink and want to easily find it again, you can create a free account and favorite that drink. If you're in the mood to drink but don't have anything specific in mind, you can check out the 10 most popular drinks or cycle through some random ones until something catches your eye.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Some Technical Details
 
-### `npm test`
+### Frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The Drink Almanac is a Single-Page App created with React and Bootstrap. State management is done entirely with React hooks, but plans are in place to switch over to Redux in the future.
 
-### `npm run build`
+### REST API 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Accounts and favorites are managed through [a REST API](https://thedrinkalmanacapi.herokuapp.com) created with Python and Flask. The API is built on top of a PostgreSQL database. Checkout the GitHub repo [here](https://github.com/ryan-kp-miller/The-Drink-Almanac-API).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Drink Data Source
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+All of the drink ingredients, instructions, and images are from [The Cocktail DB](https://www.thecocktaildb.com/api.php).
