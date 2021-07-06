@@ -18,7 +18,7 @@ The Drink Almanac is a Single-Page App created with React and Bootstrap. State m
 
 ### REST API 
 
-Accounts and favorites are managed through [a REST API](https://thedrinkalmanacapi.herokuapp.com) created with Python and Flask. The API is built on top of a PostgreSQL database. Checkout the GitHub repo [here](https://github.com/ryan-kp-miller/The-Drink-Almanac-API).
+Accounts and favorites are managed through [a REST API](https://thedrinkalmanacapi.herokuapp.com) created with Python and Flask. The API is built on top of a PostgreSQL database. Check out the GitHub repo [here](https://github.com/ryan-kp-miller/The-Drink-Almanac-API).
 
 ### Drink Data Source
 
