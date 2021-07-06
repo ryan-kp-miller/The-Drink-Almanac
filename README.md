@@ -5,6 +5,7 @@ Soon after moving into my new apartment in Chicago, I went out for drinks and pa
 ## Overview
 
 ![The Drink Almanac's Landing Page](screenshots/home.png)
+![Example Drink Page](screenshots/mojito.png)
 
 The Drink Almanac lets you quickly find the ingredients and instructions for hundreds of drinks (alcoholic and some non-alcoholic options). If you like a drink and want to easily find it again, you can create a free account and favorite that drink. If you're in the mood to drink but don't have anything specific in mind, you can check out the 10 most popular drinks or cycle through some random ones until something catches your eye.
 
