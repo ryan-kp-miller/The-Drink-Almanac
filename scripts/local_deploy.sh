@@ -9,9 +9,9 @@ echo "Creating the static files"
 npm run build
 
 echo "Deploying the static files to s3"
-aws s3 sync build/ s3://ryankpmiller.com/thedrinkalmanac/
+aws s3 sync build/ s3://thedrinkalmanac.com/
 
 echo "Invalidating the cloudfront cache to force it to resync with s3"
-aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_ID --paths /thedrinkalmanac/*
+aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_ID --paths /*
 
 echo "Finished deploying!"
