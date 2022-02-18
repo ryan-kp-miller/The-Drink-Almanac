@@ -35,3 +35,6 @@ config.py
 
 # VSCode settings
 .vscode
+
+# environment variables
+.env
