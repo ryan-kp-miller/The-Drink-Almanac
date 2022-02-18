@@ -1,5 +1,5 @@
 echo "Creating the static files"
-react-scripts start
+call npm run build
 
 echo "Deploying the static files to s3"
 aws s3 sync build/ s3://ryankpmiller.com/thedrinkalmanac/
