@@ -18,7 +18,7 @@ function LandingPage() {
 
     return (
         <Container className="justify-content-center">
-            <PageHeader pageTitle="The Drink Almanac" additionalDiv={<p className="lead text-center">Collection of beginner-friendly cocktail recipes</p>} />
+            <PageHeader pageTitle="The Drink Almanac" additionalDiv={<p className="lead text-center">A collection of beginner-friendly cocktail recipes</p>} />
             <br/>
             <Container>
                 <Row>
